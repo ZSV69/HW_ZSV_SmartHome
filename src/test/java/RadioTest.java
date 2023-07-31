@@ -115,6 +115,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void increaseVolumeMin() {
         Radio volume = new Radio();
@@ -191,6 +192,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void reductionVolumeAboveMin() {
         Radio volume = new Radio();
@@ -201,6 +203,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void reductionVolumeMax() {
         Radio volume = new Radio();
@@ -211,6 +214,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void reductionVolumeAbuveMax() {
         Radio volume = new Radio();
