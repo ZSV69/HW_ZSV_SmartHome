@@ -1,7 +1,15 @@
 public class Radio {
     private int currentRadio;
-
     private int currentVolume;
+    private int maxRadio;
+
+    public Radio() {
+        this.maxRadio = 9;
+    }
+
+    public Radio(int radioCount) {
+        this.maxRadio = radioCount - 1;
+    }
 
     public int getCurrentRadio() {
         return currentRadio;
@@ -11,7 +19,7 @@ public class Radio {
         if (currentRadio < 0) {
             return;
         }
-        if (currentRadio > 9) {
+        if (currentRadio > maxRadio) {
             return;
         }
 
@@ -34,7 +42,7 @@ public class Radio {
 
     public void nextRadio() {
 
-        if (currentRadio != 9) {
+        if (currentRadio != maxRadio) {
             currentRadio = currentRadio + 1;
         } else {
             currentRadio = 0;
@@ -45,7 +53,7 @@ public class Radio {
         if (currentRadio != 0) {
             currentRadio = currentRadio - 1;
         } else {
-            currentRadio = 9;
+            currentRadio = maxRadio;
         }
     }
 
