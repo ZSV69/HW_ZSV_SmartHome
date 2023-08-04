@@ -7,73 +7,61 @@ public class Radio {
         return currentRadio;
     }
 
-    public void setCurrentRadio(int newCurrentRadio) {
-        if (newCurrentRadio > 9) {
+    public void setCurrentRadio(int currentRadio) {
+        if (currentRadio < 0) {
             return;
         }
-        if (newCurrentRadio < 0) {
+        if (currentRadio > 9) {
             return;
         }
-        currentRadio = newCurrentRadio;
+
+        this.currentRadio = currentRadio;
     }
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 100) {
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume > 100) {
             return;
         }
-        if (newCurrentVolume < 0) {
+        if (currentVolume < 0) {
             return;
         }
-        currentVolume = newCurrentVolume;
+        this.currentVolume = currentVolume;
     }
 
-    public int nextRadio() {
-        if (currentRadio >= 9) {
-            return currentRadio = 0;
-        }
-        if (currentRadio < 9) {
+    public void nextRadio() {
+
+        if (currentRadio != 9) {
             currentRadio = currentRadio + 1;
+        } else {
+            currentRadio = 0;
         }
-        return currentRadio;
     }
 
-
-    public int prevRadio() {
-        if (currentRadio < 1) {
+    public void prevRadio() {
+        if (currentRadio != 0) {
+            currentRadio = currentRadio - 1;
+        } else {
             currentRadio = 9;
         }
-        if (currentRadio < 9) {
-            currentRadio = currentRadio - 1;
-        }
-        return currentRadio;
     }
 
-
-    public int increaseVolume() {
-
-        if (currentVolume >= 100) {
-            return currentVolume = 100;
-        }
-        if (currentVolume < 100) {
+    public void increaseVolume() {
+        if (currentVolume != 100) {
             currentVolume = currentVolume + 1;
+        } else {
+            currentVolume = 100;
         }
-        return currentVolume;
     }
 
-    public int reductionVolume() {
-
-        if (currentVolume < 1) {
-            return currentVolume = 0;
-        }
-        if (currentVolume <= 100) {
+    public void reductionVolume() {
+        if (currentVolume != 0) {
             currentVolume = currentVolume - 1;
+        } else {
+            currentVolume = 0;
         }
-        return currentVolume;
-
     }
 }
-
