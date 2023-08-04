@@ -389,5 +389,182 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void newSetRadioBelowMin() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(-1);
+
+        int expected = 0;
+        int actual = radio.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newSetRadioMin() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(0);
+
+        int expected = 0;
+        int actual = radio.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newSetRadioAboveMin() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(1);
+
+        int expected = 1;
+        int actual = radio.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newSetRadioBelowMax() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(18);
+
+        int expected = 18;
+        int actual = radio.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newSetRadioMax() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(19);
+
+        int expected = 19;
+        int actual = radio.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newSetRadioAboveMax() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(20);
+
+        int expected = 0;
+        int actual = radio.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newNextRadio() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(3);
+        radio.nextRadio();
+
+        int expected = 4;
+        int actual = radio.getCurrentRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void NewNextRadioBelowMax() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(18);
+        radio.nextRadio();
+
+        int expected = 19;
+        int actual = radio.getCurrentRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newNextRadioMax() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(19);
+        radio.nextRadio();
+
+        int expected = 0;
+        int actual = radio.getCurrentRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newNextRadioMin() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(0);
+        radio.nextRadio();
+
+        int expected = 1;
+        int actual = radio.getCurrentRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newNextRadioAboveMin() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(1);
+        radio.nextRadio();
+
+        int expected = 2;
+        int actual = radio.getCurrentRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newPrevRadio() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(5);
+        radio.prevRadio();
+
+        int expected = 4;
+        int actual = radio.getCurrentRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newPrevRadioMin() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(0);
+        radio.prevRadio();
+
+        int expected = 19;
+        int actual = radio.getCurrentRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newPrevRadioAboveMin() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(1);
+        radio.prevRadio();
+
+        int expected = 0;
+        int actual = radio.getCurrentRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newPrevRadioBelowMax() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(19);
+        radio.prevRadio();
+
+        int expected = 18;
+        int actual = radio.getCurrentRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newPrevRadioMax() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadio(19);
+        radio.prevRadio();
+
+        int expected = 18;
+        int actual = radio.getCurrentRadio();
+        Assertions.assertEquals(expected, actual);
+    }
+
 }
 
